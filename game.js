@@ -1,3 +1,6 @@
+ <script>
+ var bear;
+ </script>
 script src="game.js"></script>
 <noscript>
  Warning - JavaScript is Disabled.
