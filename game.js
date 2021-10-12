@@ -23,7 +23,6 @@ function start() {
  //create bear
  bear = new Bear();
 }
-body onload="start();">
 // Handle keyboad events 
 // to move the bear
 function moveBear(e) {
