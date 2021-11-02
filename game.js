@@ -65,7 +65,7 @@ this.move = function(xDir, yDir) {
  this.y += this.dBear * yDir;
  this.display();
  };
-lass Bee {
+class Bee {
  constructor(beeNumber) {
  //the HTML element corresponding to the IMG of the bee
  this.htmlElement = createBeeImg(beeNumber);
