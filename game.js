@@ -107,3 +107,56 @@ class Bee {
  this.y = h - ih;
  };
  }
+ 
+ 
+ function makeBees() {
+ //get number of bees specified by the user
+ let nbBees = document.getElementById("nbBees").value;
+ nbBees = Number(nbBees); //try converting the content of the input to a number 
+ if (isNaN(nbBees)) { //check that the input field contains a valid number
+ window.alert("Invalid number of bees");
+ return;
+ }
+ //create bees 
+ let i = 1;
+ while (i <= nbBees) {
+ var num = i;
+ var bee = new Bee(num); //create object and its IMG element
+ bee.display(); //display the bee
+ bees.push(bee); //add the bee object to the bees array
+ i++;
+ }
+}
+ 
+ function start() {
+ //create bear
+ bear = new Bear();
+ // Add an event listener to the keypress event.
+ document.addEventListener("keydown", moveBear, false);
+ //create new array for bees
+ bees = new Array();
+ //create bees
+ makeBees();
+}
+
+ 
+
+ function moveBees() {
+ //get speed input field value
+ let speed = document.getElementById("speedBees").value;
+ //move each bee to a random location
+ for (let i = 0; i < bees.length; i++) {
+ let dx = getRandomInt(2 * speed) - speed;
+ let dy = getRandomInt(2 * speed) - speed;
+ bees[i].move(dx, dy);
+ }
+}
+
+ function updateBees() { // update loop for game
+ //move the bees randomly
+ moveBees();
+ //use a fixed update period
+ let period = 10;//modify this to control refresh period
+ //update the timer for the next move
+ updateTimer = setTimeout('updateBees()', period);
+}
